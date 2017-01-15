@@ -3,20 +3,32 @@ window.onload = function() {
 	context = canvas.getContext("2d"),
 	width = canvas.width = window.innerWidth,
 	height = canvas.height = window.innerHeight,
-        p = particle.create(100, 100, 0.3, Math.PI / 6);
+        particles = [],
+        numParticles = 100;
+
+    for(var i = 0; i < numParticles; i++) {
+        var p = particle.create(width / 2,
+                                height / 2,
+                                Math.random() * 4 + 1,
+                                Math.random() * Math.PI * 2)
+        particles.push(p);
+    }
 
     update();
 
     function update() {
         context.clearRect(0, 0, width, height);
 
-        context.beginPath();
-        context.arc(p.position.getX(), p.position.getY(), 10, 0, Math.PI * 2, false);
-        context.fill();
+        for(var i = 0; i < numParticles; i++) {
 
+            var p = particles[i];
 
-        // Update the position with the velocity vector, i.e. move the circle
-        p.update();
+            context.beginPath();
+            context.arc(p.position.getX(), p.position.getY(), 10, 0, Math.PI * 2, false);
+            context.fill();
+
+            p.update();
+        }
 
         requestAnimationFrame(update);
     }
