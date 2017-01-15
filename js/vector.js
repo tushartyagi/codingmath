@@ -59,5 +59,25 @@ var vector = {
     
     divide: function(value) {
         return vector.create(this._x / value, this._y  / value);
+    },
+
+    addTo: function(other) {
+        this._x += other.getX();
+        this._y += other.getY();
+    },
+
+    subtractFrom: function(other) {
+        this._x -= other.getX();
+        this._y -= other.getY();
+    },
+
+    multiplyBy: function(other) {
+        this._x *= other.getX();
+        this._y *= other.getY();
+    },
+
+    divideBy: function(other) {
+        this._x /= other.getX();
+        this._y /= other.getY();
     }
 }
