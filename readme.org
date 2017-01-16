@@ -1,0 +1,46 @@
+* Coding Math
+
+** Play Area:
+
+#+BEGIN_SRC javascript
+  var canvas = document.getElementById("canvas"),
+      context = canvas.getContext("2d"),
+      width = canvas.width = window.innerWidth,
+      height = canvas.height = window.innerHeight;
+
+  update();
+
+  function update() {
+          ...
+
+      // Make changes in the model here.
+      requestAnimationFrame(update);
+  }
+
+
+#+END_SRC
+
+** Trigonometry: 
+   - `sin` and `cos` give values between [-1, 1], so these can be used when we need 
+     + Get random values between [-offset, offset],
+     + Oscillate an object between [-offset, offset]
+
+   - `arctan` can be used to find the angle if opposite and adjancent sides are 
+     given. `angle = arctan(opposite / adjancent)`
+     + One application is to find how much do I need to turn from the adjacent to face an object. 
+
+** Vectors:
+   - Have 2 ways of representation:
+     + magnitude and direction
+     + Point in the plane: (x, y)
+
+   - Adding two vector graphically means to arrange them such that head of one is joined to the tail of other. Then make a vector from the tail of first to the head of the last. 
+   - Otherwise, add the magnitudes and directions (or x and y) of the given vectors.
+
+   - Other operations of subtract, multiply, divide are the same.
+
+** Velocity:
+
+   - A vector with speed and direction.
+   - Graphically, can be represented by `pixels changed / frame` or  `pixels changed / second`.
+   - If a position vector is given, the movement can be defined by adding to it the velocity vector per unit of time, at each time unit.
