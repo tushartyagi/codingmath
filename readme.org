@@ -44,3 +44,8 @@
    - A vector with speed and direction.
    - Graphically, can be represented by `pixels changed / frame` or  `pixels changed / second`.
    - If a position vector is given, the movement can be defined by adding to it the velocity vector per unit of time, at each time unit.
+
+** Acceleration:
+   
+   - Rate of change of velocity
+   - Vectorially, this means that we add the acceleration vector to the velocity vector per unit time. This in turns will change the distance (which is also updated since it will use the update velocity vector per unit time).
