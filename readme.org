@@ -20,6 +20,21 @@
 
 #+END_SRC
 
+
+** Drawing Rotations:
+
+   As per [[https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/HTML-canvas-guide/Translation,Rotation,andScaling/Translation,Rotation,andScaling.html][apple developer guide]], the easiest way of creating a rotated image at (x, y) is:
+   
+   - `context.save()`
+   - transform the canvas to `(x, y)`
+   - rotate the canvas by `angle`
+   - draw whatever
+   - `context.restore()`
+
+   Otherwise, we have to do:
+   - translate(x, y)
+   - draw at `x * cos(-angle) - y * sin(-angle), y * cos(-angle) + x * sin(-angle)`
+
 ** Trigonometry: 
    - `sin` and `cos` give values between [-1, 1], so these can be used when we need 
      + Get random values between [-offset, offset],
@@ -49,3 +64,6 @@
    
    - Rate of change of velocity
    - Vectorially, this means that we add the acceleration vector to the velocity vector per unit time. This in turns will change the distance (which is also updated since it will use the update velocity vector per unit time).
+
+
+
